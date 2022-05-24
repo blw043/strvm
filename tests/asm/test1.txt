@@ -1,0 +1,35 @@
+    BR      main
+; define string constants
+str0 .dw "Hi. This is "
+str1 .dw ". I want to do "
+str2 .dw "nothing",
+str3 .dw "a thing",
+str4 .dw "some things",
+str5 .dw "."
+
+; main function
+main
+    STR     str0, str1 - str0
+    PSTR    0
+    STR     str1, str2 - str1
+    PNUM    1
+    PLURAL
+    CALLR   fmtnum
+    SWAPI   1
+    POPN    1
+    STR     str5, main - str5
+    LCATN   5
+    HALT
+; subroutine
+fmtnum
+    DUPI    1
+    DUPI    1
+    BNZ     :+
+      STR   str2, str3 - str2
+      RETV
+:   DEC
+    BNZ     :+
+      STR   str3, str4 - str3
+      RETV
+:   STR     str4, str5 - str4
+    RETV

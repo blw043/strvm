@@ -1,0 +1,13 @@
+
+base = .
+int32 -43
+int16 4
+add
+putvr 5
+retv
+
+foo = "meh"
+
+bar = "blah"
+.dw foo, bar
+.dl . - base
