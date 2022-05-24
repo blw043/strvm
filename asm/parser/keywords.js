@@ -3,7 +3,8 @@ const {TokenType} = require("./token");
 
 const directiveKeywords = [
   '.dw',
-  '.dl'
+  '.dl',
+  '.ds',
 ]
 
 function resolveInstructionKeyword(token) {

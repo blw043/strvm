@@ -11,6 +11,12 @@ const generateCode = createVisitor(defVisitor => ({
   },
   Directive(node) {
     switch(node.op) {
+      case '.ds': {
+        const size = node.args[0].value;
+        for(let i = 0; i < size; i++) {
+          this.locals.output += '\u0000';
+        }
+      }
       case '.dw': 
         this.locals.output += dw(node.addr, node.args.map(n => n.value));
         break;

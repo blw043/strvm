@@ -54,6 +54,22 @@ const evaluateAndCalcAddrs = createVisitor(defVisit => ({
   },
   Directive(node) {
     switch(node.op) {
+      case '.ds': {
+        if(node.args.length !== 1) {
+          return this.error(node.line, 
+            '.ds requires 1 argument, got ' + node.args.length);
+        }
+        
+        const arg0 = node.args[0];
+        evalExpression(arg0, this);
+        if(arg0.value != null && typeof arg0.value !== 'number') {
+          return this.error(node.line,
+            '.ds requires a number argument'
+          );
+        }
+        this.pc += arg0.value;
+        break;
+      }
       case '.dw':
         if(node.addr !== this.pc) {
           node.addr = this.pc;
