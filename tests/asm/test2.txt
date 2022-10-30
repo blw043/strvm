@@ -1,7 +1,9 @@
-
 base = .
+.dw label1
+.ds 4
 int32 -43
 int16 4
+label1:
 add
 putvr 5
 retv
