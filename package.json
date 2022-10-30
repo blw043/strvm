@@ -1,0 +1,14 @@
+{
+  "name": "strvm",
+  "version": "0.0.1",
+  "description": "Toy stack machine and assembler in JS",
+  "main": "vmtest.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "blw",
+  "license": "ISC"
+}
